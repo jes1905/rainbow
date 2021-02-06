@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>rainbow list</title> 
+    </head>
+    <body>
+        <ul>
+            {% for color in colors %}
+            <a href='/{{color}}'> {{color}}</a><br>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

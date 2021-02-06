@@ -37,7 +37,10 @@ def indigo():
 def violet():
       return render_template('rainbow.html', color="violet", name = name)
 
-
+@app.route('/rainbow')
+def rainbow():
+      colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+      return render_template('rainbow2.html', colors = colors)
 
 
 
