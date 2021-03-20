@@ -6,6 +6,8 @@ from time import sleep
 app = Flask(__name__)
 sense = SenseHat()
 
+
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -15,7 +17,7 @@ def success():
     message = request.form['message']
     name = request.form['name']
     #display on sensehat
-    sense.show_message({{message}} {{name}})
+    sense.show_message(message + " by " + name)
     return render_template('success.html', message = message, name = name)
      
 
