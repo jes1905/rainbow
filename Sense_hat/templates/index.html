@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
     <body>
-        <form action = '/success' method = "post">
-            <p>Write Message:</p>
-            <p><input type = "text" name = "message" /></p>
-            <p>Enter Name:</p>
-            <p><input type = "text" name = "name" /></p>
-            <p><input type = "submit" value = "Submit" /></p>
-        </form>
+        <div class="text">
+            <form action = '/success' method = "post" >
+                <label>Write Message:</label></br>
+                <input type = "text" name = "message" /></br>
+                <label>Enter Name:</label></br>
+                <input type = "text" name = "name" /></br>
+                <input type = "submit" value = "Submit" class="button" /></br>
+            </form>
+        </div>
     </body>
 </html>
