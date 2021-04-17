@@ -39,7 +39,7 @@ def all():
         message = {'name':row[0], 'message':row[1]}
         messages.append(message)
     conn.close()
-    return render _template('all.html', messages = messages)
+    return render_template('all.html', messages = messages)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

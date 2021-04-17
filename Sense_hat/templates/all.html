@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<head>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    
-</body>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>All Messages</h1>
+        {% for message in messages %}
+            <p>{{message["message"]}} from {{message["name"]}}</p>
+        {% endfor %}
+    </body>
+   
+</html>
