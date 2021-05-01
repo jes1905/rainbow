@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>All Scheduled tasks</h1>
+        {% for task in tasks %}
+            <p>{{tasks["task"]}} on {{tasks["date"]}}</p>
+        {% endfor %}
+    </body>
+</html>

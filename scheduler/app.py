@@ -12,21 +12,28 @@ scheduler.init_app(app)
 scheduler.start()
 sense = SenseHat()
 
-@app.route('/')
+@app.route('/', methods = ["GET", "POST"])
 def index():
-    return render_template('index.html')
-
-@app.route('/tasks', methods = ['GET', 'POST'])
-def tasks():
     task = request.form['task']
-    time = request.form['time']
     date = request.form['date']
     conn = sqlite3.connect('./static/data/tasks.db')
     curs = conn.cursor()
-    curs.execute("INSERT INTO tasks(task, time, date) VALUES((?),(?),(?))",(task,time,data))
+    curs.execute("INSERT INTO tasks(task, date) VALUES((?),(?))",(task,date))
     conn.commit()
     conn.close()
-    return render_template('tasks.html', task = task, time = time, date = date)
+    return render_template('index.html', task = task, date = date)
+
+@app.route('/tasks', methods = ['GET', 'POST'])
+def tasks():
+    conn = sqlite3.connect('./static/data/tasks.db')
+    curs = conn.cursor()
+    tasks = []
+    rows = curs.execute("SELECT * from tasks")
+    for row in rows:
+        task = {'task':row[0], 'date':row[1]}
+        tasks.append(task)
+    conn.close()
+    return render_template('tasks.html', tasks = tasks)
 
 
 
