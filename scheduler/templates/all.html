@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="task_in">
+            <form action = '/all' method = "post" >
+                <label>write your task here</label></br>
+                <input type = "text" name = "task" /></br>
+                <label>Date</label></br>
+                <input type="datetime-local" name = "date"></br>
+                <input type = "submit" value = "Save" class="button" /></br>
+            </form>
+        </div>
+
+        <div style="text-align:center">
+            <h1>All Scheduled tasks</h1>
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    <p>{{tasks["task"]}} on {{tasks["date"]}}</p>
+                    <form action = '/delete' method = "post">
+                        <input type = "submit" value = "delete" class = "button"  /></br>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </body>
+</html>
