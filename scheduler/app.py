@@ -12,15 +12,12 @@ scheduler.init_app(app)
 scheduler.start()
 sense = SenseHat()
 
-def show_reminder(reminder):
-    display = task
 
 @app.route('/', methods = ["GET", "POST"])
 def index():
     task = request.form['task']
     date = request.form['date']
     rowid = request.form['rowid']
-    scheduler.add_job(id= 'rowid', func = 'show_reminder', trigger = 'date' run_date= 'date', args= 'task'])
     conn = sqlite3.connect('./static/data/tasks.db')
     curs = conn.cursor()
     tasks = []
@@ -33,6 +30,10 @@ def index():
 
 @app.route('/tasks', methods = ['GET', 'POST'])
 def tasks():
+    def show_reminder(reminder):
+        display = task
+        
+    scheduler.add_job(id= 'rowid', func = 'show_reminder', trigger = 'date' run_date= 'date', args= 'task'])
     conn = sqlite3.connect('./static/data/tasks.db')
     curs = conn.cursor()
     tasks = []
