@@ -30,10 +30,6 @@ def index():
 
 @app.route('/tasks', methods = ['GET', 'POST'])
 def tasks():
-    def show_reminder(reminder):
-        display = task
-        
-    scheduler.add_job(id= 'rowid', func = 'show_reminder', trigger = 'date' run_date= 'date', args= 'task'])
     conn = sqlite3.connect('./static/data/tasks.db')
     curs = conn.cursor()
     tasks = []
